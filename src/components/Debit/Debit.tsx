@@ -16,8 +16,6 @@ import Sbi2 from "./Sbi2/Sbi2";
 import Sys from "./Sys/Sys";
 import Names from "../../utils/Names";
 import CheckTheme from "../../utils/CheckTheme";
-import optionsbank from "../../data/optionsbank";
-import CheckAmoutn from "../../utils/CheckAmount";
 import html2canvas from "html2canvas";
 import Header from "../../layout/Header";
 import Samsung from "./Samsung/Samsung";
@@ -29,7 +27,7 @@ import Yes from "./Yes/Yes";
 import "../../app.css";
 
 import Number from "../../utils/Number";
-import list from "../../data/bank";
+
 import { useSelector } from "react-redux";
 import { debitDetaill } from "../../store/debit/debitSelectors";
 
@@ -39,7 +37,6 @@ function Debit() {
   const [amount, setAmount] = useState(0);
   const [IFSC, setIFSC] = useState<any | null>(null);
   const divRef = useRef<HTMLDivElement>(null);
-  const creditRef = useRef<HTMLDivElement>(null);
   const [template, setTemplate] = useState("icici");
   const [reference, setReference] = useState<any | null>(null);
   const [utr, setutr] = useState<any | null>(null);
@@ -150,30 +147,7 @@ function Debit() {
     }
   }
 
-  function creditScreenshot() {
-    if (creditRef.current) {
-      html2canvas(creditRef.current, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-      }).then((canvas) => {
-        canvas.toBlob((blob) => {
-          if (blob !== null) {
-            const item = new ClipboardItem({ "image/png": blob });
-            navigator.clipboard
-              .write([item])
-              .then(() => {
-                console.log("Screenshot copied to clipboard");
-              })
-              .catch((error) => {
-                console.error("Error copying screenshot to clipboard:", error);
-              });
-          }
-        }, "image/png");
-        setAmount(amount);
-      });
-    }
-  }
+
 
   return (
     <div className="app">
