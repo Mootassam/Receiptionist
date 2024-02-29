@@ -55,7 +55,6 @@ function Debit() {
   const change = (event) => {
     event.preventDefault();
     setAmount(event.target.value);
-    let a = Math.floor(100000000000 + Math.random() * 900000000000);
     let ifsc = Math.floor(1000000 + Math.random() * 9000000);
     let utr = Math.floor(100000000000 + Math.random() * 900000000000);
 
