@@ -30,7 +30,6 @@ function Blue(props) {
       <div className="bank__header">
         <div className="time__">
           <div className="time__blue">
-            {" "}
             {Dates.currentTime()}
             <Left />
           </div>
@@ -74,17 +73,19 @@ function Blue(props) {
       <div className="bank__detaill">
         <div className="detail">
           <div className="detail__left">Reference Number</div>
-          <div className="detail__right">{Number.referenceNumber()}</div>
+          <div className="detail__right">{props?.reference}</div>
         </div>
         <div className="detail">
           <div className="detail__left">From</div>
           <div className="detail__right">
-            Savings {Number.Impsblue()}{props.account}
+            Savings <br>
+            </br> {props?.from}
           </div>
         </div>
         <div className="detail">
           <div className="detail__left">To </div>
-          <div className="detail__right">Prabhash IDFB0024312 10115059853</div>
+          <div className="detail__right">{props?.paidto} <br />
+            {props?.account}</div>
         </div>
         <div className="detail">
           <div className="detail__left">Amount </div>
@@ -103,7 +104,7 @@ function Blue(props) {
 
         <div className="detail">
           <div className="detail__left">Transfer Mode </div>
-          <div className="detail__right">IMPS-P2A</div>
+          <div className="detail__right">{props?.mode}</div>
         </div>
 
         <div className="detail">
@@ -121,7 +122,7 @@ function Blue(props) {
 
         <div className="detail">
           <div className="detail__left">Remarks </div>
-          <div className="detail__right">Prepaid</div>
+          <div className="detail__right">{props?.remarks}</div>
         </div>
 
         <div className="button__done">DONE</div>

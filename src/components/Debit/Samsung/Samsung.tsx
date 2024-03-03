@@ -34,12 +34,12 @@ function Samsung(props) {
 
           <div className="samsung__text">
             <div className="samsung__left">Sent from:</div>
-            <div className="samsung__right"> {props?.from}</div>
+            <div className="samsung__right"> {props?.fromCustomer}</div>
           </div>
 
           <div className="samsung__text">
             <div className="samsung__left">UPI ID:</div>
-            <div className="samsung__right">{props?.reference}</div>
+            <div className="samsung__right">{props?.upi}</div>
           </div>
         </div>
         <img src="/Samsung/bar.png" alt="" width={368} />

@@ -19,7 +19,7 @@ function Icici2(props) {
             <div className="icici2__content">
               <div className="customer">
                 <label htmlFor="">Customer Name</label>
-                <span>{Names.generateRandomFullName()}r</span>
+                <span>{props?.fromCustomer}</span>
               </div>
               <div className="customer__bar"></div>
               <div className="customer__group">
@@ -41,7 +41,6 @@ function Icici2(props) {
                   <label htmlFor="">Date</label>
                   <span>{Dates.dateBlue()}</span>
                 </div>
-
                 <div className="customer">
                   <label htmlFor="">Time</label>
                   <span> {Dates.timeImps()}</span>
@@ -102,7 +101,7 @@ function Icici2(props) {
                   Customer Name
                 </label>
                 <span className="text__white">
-                  {Names.generateRandomFullName()}
+                  {props?.fromCustomer}
                 </span>
               </div>
               <div className="customer__bar"></div>

@@ -41,7 +41,7 @@ function Debit() {
   const [transactionId, setTransaction] = useState<any | null>(null);
   const [theme, setTheme] = useState("light");
   const [loaded, setLoaded] = useState(false);
-  const [upi] = useState(3332);
+  const [upi, setUpi] = useState<any | null>();
   const dataDebit = useSelector(debitDetaill);
 
   const [mode, setMode] = useState("");
@@ -170,7 +170,7 @@ function Debit() {
               />
             </div>}
 
-            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== 'bharat' && <div className="sdiebar__form">
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== 'bharat' && template !== 'samsung' && <div className="sdiebar__form">
               <label htmlFor=""> Mode ID</label>
               <input
                 name="amount"
@@ -180,7 +180,7 @@ function Debit() {
               />
             </div>}
 
-            {template !== 'Yes' && template !== 'Green' && template !== 'sbi' && <div className="sdiebar__form">
+            {template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'bharat' && template !== 'samsung' && <div className="sdiebar__form">
               <label htmlFor="">Paid To</label>
               <input
                 name="amount"
@@ -190,7 +190,7 @@ function Debit() {
               />
             </div>}
 
-            {template !== 'imps' &&
+            {template !== 'imps' && template !== 'samsung' &&
               <div className="sdiebar__form">
                 <label htmlFor="">Account To</label>
                 <input
@@ -213,8 +213,8 @@ function Debit() {
                 onChange={change}
               />
             </div>
-            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'bharat' &&
-              <div className="sdiebar__form">
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'bharat' && template !== 'samsung' &&
+              < div className="sdiebar__form">
                 <label htmlFor="">From Account</label>
                 <input
                   name="amount"
@@ -225,7 +225,7 @@ function Debit() {
               </div>
             }
 
-            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Green' && template !== 'sbi' && template !== 'bharat' &&
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Green' && template !== 'sbi' && template !== 'impsblue' &&
               <div className="sdiebar__form">
                 <label htmlFor="">From Customer name</label>
                 <input
@@ -236,7 +236,7 @@ function Debit() {
                 />
               </div>
             }
-            {template !== 'imps' && template !== 'icici' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" && template !== 'bharat' &&
+            {template !== 'imps' && template !== 'icici' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" && template !== 'bharat' && template !== 'impsblue' && template !== 'samsung' &&
               <div className="sdiebar__form">
                 <label htmlFor=""> Bank Name</label>
                 <input
@@ -246,7 +246,7 @@ function Debit() {
                   onChange={(e) => setBankName(e.target.value)}
                 />
               </div>}
-            {template !== 'imps' && template !== 'icici' && template !== 'grey' && template !== 'idfc' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" && template !== 'bharat' &&
+            {template !== 'imps' && template !== 'icici' && template !== 'grey' && template !== 'idfc' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" && template !== 'bharat' && template !== 'impsblue' && template !== 'samsung' &&
               <div className="sdiebar__form">
                 <label htmlFor=""> IFSC</label>
                 <input
@@ -257,7 +257,7 @@ function Debit() {
                 />
               </div>}
 
-            {template !== 'kotak' && template !== 'idfc' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" &&
+            {template !== 'kotak' && template !== 'idfc' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" && template !== 'samsung' &&
               < div className="sdiebar__form">
                 <label htmlFor=""> Remarks</label>
                 <input
@@ -265,6 +265,18 @@ function Debit() {
                   id=""
                   className="app__select"
                   onChange={(e) => setRemarks(e.target.value)}
+                />
+              </div>
+            }
+
+            {template === 'samsung' &&
+              < div className="sdiebar__form">
+                <label htmlFor=""> UPI ID</label>
+                <input
+                  name="amount"
+                  id=""
+                  className="app__select"
+                  onChange={(e) => setUpi(e.target.value)}
                 />
               </div>
             }
@@ -363,9 +375,13 @@ function Debit() {
                   {template === "impsblue" && (
                     <Blue
                       amount={amount}
-                      upi={upi}
-                      transactionId={transactionId}
+
+                      reference={reference}
                       account={account}
+                      mode={mode}
+                      paidto={paidto}
+                      from={from}
+                      remarks={remarks}
                     />
                   )}
                   {template === "airtel" && (
@@ -455,6 +471,7 @@ function Debit() {
                       transactionId={reference}
                       froms={froms}
                       remarks={remarks}
+                      fromCustomer={fromCustomer}
                     />
                   )}
                   {template === "phonepe3" && (
@@ -475,6 +492,8 @@ function Debit() {
                       from={from}
                       account={account}
                       transactionId={reference}
+                      fromCustomer={fromCustomer}
+                      upid={upi}
                     />
                   )}
                   {template === "idfc" && (
