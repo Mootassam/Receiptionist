@@ -1,7 +1,6 @@
 import "./yes.css";
 import Currency from "../../../utils/Currency";
 import Dates from "../../../utils/Dates";
-import Number from "../../../utils/Number";
 import Names from "../../../utils/Names";
 function Yes(props) {
   return (

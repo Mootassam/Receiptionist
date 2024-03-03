@@ -1,6 +1,5 @@
 import "./Samsung.css";
 import Dates from "../../../utils/Dates";
-import Names from "../../../utils/Names";
 
 function Samsung(props) {
 

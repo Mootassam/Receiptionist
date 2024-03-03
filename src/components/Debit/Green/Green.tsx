@@ -6,9 +6,7 @@ import Dates from "../../../utils/Dates";
 import Currency from './../../../utils/Currency';
 function Green(props) {
   const limit = Math.floor(Math.random() * (100 - 6 + 1)) + 6;
-  const random4Nuber = () => {
-    return Math.floor(Math.random() * 9000) + 1000;
-  }
+
   const random3Number = () => {
     return Math.floor(Math.random() * (352 - 44 + 1)) + 44
   }
