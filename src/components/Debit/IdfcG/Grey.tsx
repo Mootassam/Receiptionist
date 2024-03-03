@@ -1,7 +1,5 @@
 import "./idfcg.css";
 import Currency from "../../../utils/Currency";
-import Number from "../../../utils/Number";
-import Names from "../../../utils/Names";
 import Dates from "../../../utils/Dates";
 function Grey(props) {
   return (

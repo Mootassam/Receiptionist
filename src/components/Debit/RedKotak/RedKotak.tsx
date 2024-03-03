@@ -1,7 +1,7 @@
 import "./redKotak.css";
 import Currency from "../../../utils/Currency";
 import Dates from "../../../utils/Dates";
-import Names from "../../../utils/Names";
+
 function RedKotak(props) {
   return (
     <>

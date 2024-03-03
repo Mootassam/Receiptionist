@@ -28,7 +28,6 @@ import "../../app.css";
 import Number from "../../utils/Number";
 import { useSelector } from "react-redux";
 import { debitDetaill } from "../../store/debit/debitSelectors";
-
 import Green from "./Green/Green";
 import optionsbank from "../../data/optionsbank";
 import CheckAmoutn from "../../utils/CheckAmount";
