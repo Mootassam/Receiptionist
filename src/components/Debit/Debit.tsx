@@ -25,17 +25,16 @@ import Fi from "./Fi/Fi";
 import RedKotak from "./RedKotak/RedKotak";
 import Yes from "./Yes/Yes";
 import "../../app.css";
-
 import Number from "../../utils/Number";
-
 import { useSelector } from "react-redux";
 import { debitDetaill } from "../../store/debit/debitSelectors";
 
 import Green from "./Green/Green";
+import optionsbank from "../../data/optionsbank";
+import CheckAmoutn from "../../utils/CheckAmount";
 
 function Debit() {
   const [amount, setAmount] = useState(0);
-  const [IFSC, setIFSC] = useState<any | null>(null);
   const divRef = useRef<HTMLDivElement>(null);
   const [template, setTemplate] = useState("icici");
   const [reference, setReference] = useState<any | null>(null);
@@ -51,6 +50,8 @@ function Debit() {
   const [account, setAccountTo] = useState("");
   const [from, setFrom] = useState("");
   const [remarks, setRemarks] = useState("");
+  const [ifsc, setifsc] = useState("");
+  const [bankName, setBankName] = useState("");
 
   const change = (event) => {
     event.preventDefault();
@@ -60,7 +61,6 @@ function Debit() {
 
     setutr(utr);
     setTransaction(`${upi}${Number.phonepe0()}`);
-    setIFSC(ifsc);
 
   };
 
@@ -165,7 +165,8 @@ function Debit() {
                 onChange={(e) => setReference(e.target.value)}
               />
             </div>
-            <div className="sdiebar__form">
+
+            {template !== 'kotak' && <div className="sdiebar__form">
               <label htmlFor=""> Mode ID</label>
               <input
                 name="amount"
@@ -173,7 +174,8 @@ function Debit() {
                 className="app__select"
                 onChange={(e) => setMode(e.target.value)}
               />
-            </div>
+            </div>}
+
             <div className="sdiebar__form">
               <label htmlFor="">Paid To</label>
               <input
@@ -201,26 +203,39 @@ function Debit() {
                 onChange={change}
               />
             </div>
+            {template !== 'kotak' &&
+              <div className="sdiebar__form">
+                <label htmlFor="">From Account</label>
+                <input
+                  name="amount"
+                  id=""
+                  className="app__select"
+                  onChange={(e) => setFrom(e.target.value)}
+                />
+              </div>
+            }
             <div className="sdiebar__form">
-              <label htmlFor="">From Account</label>
+              <label htmlFor=""> IFSC</label>
               <input
-                name="amount"
+                name="IFSC"
                 id=""
                 className="app__select"
-                onChange={(e) => setFrom(e.target.value)}
-              />
-            </div>
-            <div className="sdiebar__form">
-              <label htmlFor=""> Remarks</label>
-              <input
-                name="amount"
-                id=""
-                className="app__select"
-                onChange={(e) => setRemarks(e.target.value)}
+                onChange={(e) => setifsc(e.target.value)}
               />
             </div>
 
-            {/* <div className="sdiebar__form">
+            {template !== 'kotak' &&
+              <div className="sdiebar__form">
+                <label htmlFor=""> Remarks</label>
+                <input
+                  name="amount"
+                  id=""
+                  className="app__select"
+                  onChange={(e) => setRemarks(e.target.value)}
+                />
+              </div>
+            }
+            <div className="sdiebar__form">
               <label htmlFor="">Select Bank</label>
               <select
                 className="app__select"
@@ -237,7 +252,7 @@ function Debit() {
                     )
                 )}
               </select>
-            </div> */}
+            </div>
 
             <div></div>
 
@@ -270,8 +285,11 @@ function Debit() {
                     <Kotak
                       amount={amount}
                       upi={upi}
-                      transactionId={transactionId}
+                      reference={reference}
                       account={account}
+                      ifsc={ifsc}
+                      bankName={bankName}
+                      paidto={paidto}
                     />
                   )}
                   {template === "phonepe2" && (
@@ -297,7 +315,7 @@ function Debit() {
                     <Icici
                       amount={amount}
                       reference={reference}
-                      ifsc={IFSC}
+                      ifsc={ifsc}
                       upi={upi}
                       transactionId={transactionId}
                       mode={mode}

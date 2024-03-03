@@ -14,7 +14,7 @@ function Kotak(props) {
         <div className="kotak__group">
           <div className="group__form">
             <label htmlFor="">Reference No. (UTR No./RRN)</label>
-            <span> {props.transactionId} </span>
+            <span> {props?.reference} </span>
           </div>
           <div className="group__form">
             <label htmlFor="">Date & Time</label>
@@ -37,19 +37,19 @@ function Kotak(props) {
           <div className="group__form">
             <label htmlFor="">Benificiary name</label>
 
-            <span>{Names.generateRandomFullName()}</span>
+            <span>{props.paidto}</span>
           </div>
           <div className="group__form">
             <label htmlFor="">Bank Name</label>
-            <span>Union Bank of India</span>
+            <span>{props?.account}</span>
           </div>
           <div className="group__form">
             <label htmlFor="">Account number</label>
-            <span>{Number.accountNumberKotak()}{props.account}</span>
+            <span>{props.paidto}</span>
           </div>
           <div className="group__form">
             <label htmlFor="">IFSC</label>
-            <span>UBIN{Number.ifscNumber()}</span>
+            <span>{props?.ifsc}</span>
           </div>
         </div>
       </div>
