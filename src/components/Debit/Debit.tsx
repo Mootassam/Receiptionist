@@ -166,7 +166,7 @@ function Debit() {
               />
             </div>
 
-            {template !== 'kotak' && <div className="sdiebar__form">
+            {template !== 'kotak' && template !== 'imps' && <div className="sdiebar__form">
               <label htmlFor=""> Mode ID</label>
               <input
                 name="amount"
@@ -185,15 +185,17 @@ function Debit() {
                 onChange={(e) => setPaidTo(e.target.value)}
               />
             </div>
-            <div className="sdiebar__form">
-              <label htmlFor="">Account To</label>
-              <input
-                name="amount"
-                id=""
-                className="app__select"
-                onChange={(e) => setAccountTo(e.target.value)}
-              />
-            </div>
+            {template !== 'imps' &&
+              < div className="sdiebar__form">
+                <label htmlFor="">Account To</label>
+                <input
+                  name="amount"
+                  id=""
+                  className="app__select"
+                  onChange={(e) => setAccountTo(e.target.value)}
+                />
+              </div>
+            }
             <div className="sdiebar__form">
               <label htmlFor=""> Write Amount</label>
               <input
@@ -203,7 +205,7 @@ function Debit() {
                 onChange={change}
               />
             </div>
-            {template !== 'kotak' &&
+            {template !== 'kotak' && template !== 'imps' &&
               <div className="sdiebar__form">
                 <label htmlFor="">From Account</label>
                 <input
@@ -214,18 +216,20 @@ function Debit() {
                 />
               </div>
             }
-            <div className="sdiebar__form">
-              <label htmlFor=""> IFSC</label>
-              <input
-                name="IFSC"
-                id=""
-                className="app__select"
-                onChange={(e) => setifsc(e.target.value)}
-              />
-            </div>
+
+            {template !== 'imps' && template !== 'icici' &&
+              <div className="sdiebar__form">
+                <label htmlFor=""> IFSC</label>
+                <input
+                  name="IFSC"
+                  id=""
+                  className="app__select"
+                  onChange={(e) => setifsc(e.target.value)}
+                />
+              </div>}
 
             {template !== 'kotak' &&
-              <div className="sdiebar__form">
+              < div className="sdiebar__form">
                 <label htmlFor=""> Remarks</label>
                 <input
                   name="amount"
@@ -308,7 +312,9 @@ function Debit() {
                       amount={amount}
                       upi={upi}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
+                      remarks={remarks}
+                      paidto={paidto}
                     />
                   )}
                   {template === "icici" && (
@@ -499,7 +505,7 @@ function Debit() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

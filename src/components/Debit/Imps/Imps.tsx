@@ -21,7 +21,7 @@ function Imps(props) {
             <input
               type='text'
               placeholder='303256489490'
-              value={props.transactionId}
+              value={props?.transactionId}
               className='imps__input'
             />
           </div>
@@ -37,7 +37,7 @@ function Imps(props) {
           </div>
 
           <div className='form__group'>
-            <label htmlFor=''>Time </label>
+            <label htmlFor=''>Time</label>
             <input
               type='text'
               placeholder='05:09 pm'
@@ -52,7 +52,7 @@ function Imps(props) {
               type='text'
               placeholder='405189490651'
               className='imps__input'
-              value='405189490651'
+              value={props?.paidto}
             />
           </div>
 
@@ -71,7 +71,7 @@ function Imps(props) {
               type='text'
               placeholder='Transfer Money'
               className='imps__input'
-              value='Transfer Money'
+              value={props?.remarks}
             />
           </div>
         </div>
