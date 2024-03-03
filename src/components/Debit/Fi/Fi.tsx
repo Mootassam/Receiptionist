@@ -14,11 +14,11 @@ export default function Fi(props) {
             <span className="small__circle"> R</span>
           </div>
           <span className="fi__paidto">PAID TO </span>
-          <span className="fi__company">ITAAN TRADING CO.</span>
+          <span className="fi__company">{props.paidto}</span>
           <span className="fi__amount">
             <span className="amount__fi">
               <span className="fi__currency">₹</span>
-            {Currency.IndiaImps(props.amount)}
+              {Currency.IndiaImps(props.amount)}
               <label htmlFor="" className="fi__small">
                 .00
               </label>
@@ -45,19 +45,19 @@ export default function Fi(props) {
       <div className="big__content">
         <div className="content__speacial">
           <label htmlFor="" className="big__content__label">
-            FROM - {Names.generateRandomFullName()}:
+            FROM - {props?.fromCustomer}:
           </label>
           <label htmlFor="" className="content__detail">
-            xxxxxxxxxx{props.account}
+            xxxxxxxxxx{props?.from}
           </label>
         </div>
 
         <div className="">
           <label htmlFor="" className="big__content__label">
-            TO - ITAAN TRADING CO :
+            TO - {props?.paidto} :
           </label>
           <label htmlFor="" className="content__detail">
-            xxxxxxxx2234
+            xxxxxxxx{props?.account}
           </label>
         </div>
 
@@ -66,7 +66,7 @@ export default function Fi(props) {
             IMPS TRANSACTION ID :{" "}
           </label>
           <label htmlFor="" className="content__detail">
-            {props.transactionId}
+            {props?.transactionId}
           </label>
         </div>
 
@@ -84,7 +84,7 @@ export default function Fi(props) {
             TRANSACTION MODE:
           </label>
           <label htmlFor="" className="content__detail">
-            IMPS
+            {props?.mode}
           </label>
         </div>
       </div>

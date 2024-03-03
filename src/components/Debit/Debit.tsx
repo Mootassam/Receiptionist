@@ -233,7 +233,7 @@ function Debit() {
                 />
               </div>
             }
-            {template !== 'imps' && template !== 'icici' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' &&
+            {template !== 'imps' && template !== 'icici' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" &&
               <div className="sdiebar__form">
                 <label htmlFor=""> Bank Name</label>
                 <input
@@ -243,7 +243,7 @@ function Debit() {
                   onChange={(e) => setBankName(e.target.value)}
                 />
               </div>}
-            {template !== 'imps' && template !== 'icici' && template !== 'grey' && template !== 'idfc' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' &&
+            {template !== 'imps' && template !== 'icici' && template !== 'grey' && template !== 'idfc' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" &&
               <div className="sdiebar__form">
                 <label htmlFor=""> IFSC</label>
                 <input
@@ -254,7 +254,7 @@ function Debit() {
                 />
               </div>}
 
-            {template !== 'kotak' && template !== 'idfc' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' &&
+            {template !== 'kotak' && template !== 'idfc' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && template !== "Fi" &&
               < div className="sdiebar__form">
                 <label htmlFor=""> Remarks</label>
                 <input
@@ -503,7 +503,14 @@ function Debit() {
                       amount={amount}
                       upi={upi}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
+                      ifsc={ifsc}
+                      bankName={bankName}
+                      paidto={paidto}
+                      remarks={remarks}
+                      mode={mode}
+                      from={from}
+                      fromCustomer={fromCustomer}
                     />
                   )}
 
