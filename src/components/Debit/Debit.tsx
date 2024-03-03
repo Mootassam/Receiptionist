@@ -166,7 +166,7 @@ function Debit() {
               />
             </div>
 
-            {template !== 'kotak' && template !== 'imps' && <div className="sdiebar__form">
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && <div className="sdiebar__form">
               <label htmlFor=""> Mode ID</label>
               <input
                 name="amount"
@@ -205,7 +205,7 @@ function Debit() {
                 onChange={change}
               />
             </div>
-            {template !== 'kotak' && template !== 'imps' &&
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' &&
               <div className="sdiebar__form">
                 <label htmlFor="">From Account</label>
                 <input
@@ -216,7 +216,16 @@ function Debit() {
                 />
               </div>
             }
-
+            {template !== 'imps' && template !== 'icici' &&
+              <div className="sdiebar__form">
+                <label htmlFor=""> Bank Name</label>
+                <input
+                  name="bankname"
+                  id=""
+                  className="app__select"
+                  onChange={(e) => setBankName(e.target.value)}
+                />
+              </div>}
             {template !== 'imps' && template !== 'icici' &&
               <div className="sdiebar__form">
                 <label htmlFor=""> IFSC</label>
@@ -343,8 +352,14 @@ function Debit() {
                     <Equitas
                       amount={amount}
                       upi={upi}
-                      transactionId={transactionId}
+                      transactionId={reference}
                       account={account}
+                      ifsc={ifsc}
+                      remarks={remarks}
+                      paidto={paidto}
+                      bankName={bankName}
+
+
                     />
                   )}
                   {template === "axis" && (

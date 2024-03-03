@@ -1,8 +1,7 @@
 import "./Equitas.css";
-import Number from "../../../utils/Number";
 import Currency from "../../../utils/Currency";
 import Dates from "../../../utils/Dates";
-import Names from "../../../utils/Names";
+
 function Equitas(props) {
   return (
     <div className="app__equitas">
@@ -34,7 +33,7 @@ function Equitas(props) {
         <div className="group__detaill">
           <div className="detaill__group">
             <div className="group__label">Reference No. (UTR No./RRN)</div>
-            <div className="group__text">{props.transactionId} </div>
+            <div className="group__text">{props?.transactionId} </div>
           </div>
 
           <div className="detaill__group">
@@ -47,23 +46,23 @@ function Equitas(props) {
           </div>
           <div className="detaill__group">
             <div className="group__label">Beneficiary name</div>
-            <div className="group__text">{Names.generateRandomFullName()} </div>
+            <div className="group__text">{props?.paidto} </div>
           </div>
           <div className="detaill__group">
             <div className="group__label">Bank name</div>
-            <div className="group__text">EQUITAS SMALL FINANCIAL BANK </div>
+            <div className="group__text">{props?.bankName} </div>
           </div>
           <div className="detaill__group">
             <div className="group__label">Account number</div>
-            <div className="group__text">{Number.generate8randomNumer()}{props.account} </div>
+            <div className="group__text">{props?.account} </div>
           </div>
           <div className="detaill__group">
             <div className="group__label">IFSC</div>
-            <div className="group__text">ESFB{Number.ifscNumber()} </div>
+            <div className="group__text">{props?.ifsc} </div>
           </div>
           <div className="detaill__group">
             <div className="group__label">Remarks</div>
-            <div className="group__text">Investments </div>
+            <div className="group__text">{props?.remarks} </div>
           </div>
         </div>
       </div>
