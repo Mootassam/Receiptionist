@@ -1,8 +1,7 @@
 import Dates from "../../../utils/Dates";
 import Currency from "../../../utils/Currency";
 import "./Kotak.css";
-import Number from "../../../utils/Number";
-import Names from "../../../utils/Names";
+
 function Kotak(props) {
   return (
     <div className="app__kotak">
@@ -41,12 +40,13 @@ function Kotak(props) {
           </div>
           <div className="group__form">
             <label htmlFor="">Bank Name</label>
-            <span>{props?.account}</span>
+            <span>{props?.bankName}</span>
           </div>
           <div className="group__form">
             <label htmlFor="">Account number</label>
-            <span>{props.paidto}</span>
+            <span>{props?.account}</span>
           </div>
+
           <div className="group__form">
             <label htmlFor="">IFSC</label>
             <span>{props?.ifsc}</span>

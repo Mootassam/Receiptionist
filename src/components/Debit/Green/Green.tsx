@@ -5,16 +5,16 @@ import { BiWifi } from "react-icons/bi";
 import Dates from "../../../utils/Dates";
 import Currency from './../../../utils/Currency';
 function Green(props) {
-    const limit = Math.floor(Math.random() * (100 - 6 + 1)) + 6;
-const random4Nuber =()=>{ 
-    return Math.floor(Math.random() * 9000 ) + 1000 ;
-}
-const random3Number=()=>{ 
-     return Math.floor( Math.random() * (352 - 44 +1 )) + 44
-}
-const random1Number = () => { 
-    return Math.floor ( Math.random() * ( 9 - 1 + 1 )) + 1
-}
+  const limit = Math.floor(Math.random() * (100 - 6 + 1)) + 6;
+  const random4Nuber = () => {
+    return Math.floor(Math.random() * 9000) + 1000;
+  }
+  const random3Number = () => {
+    return Math.floor(Math.random() * (352 - 44 + 1)) + 44
+  }
+  const random1Number = () => {
+    return Math.floor(Math.random() * (9 - 1 + 1)) + 1
+  }
   return (
     <div className="app__green">
       <div className="green__header">
@@ -27,19 +27,19 @@ const random1Number = () => {
 
 
             <div className="battery__stat">
-                <img src="/Green/four.png" alt="" width={7} className="four"  />
-            <FaSignal color={"#003e35"} size={12.5} />
-            <BiWifi  size={13}   color="#003e35"/>
+              <img src="/Green/four.png" alt="" width={7} className="four" />
+              <FaSignal color={"#003e35"} size={12.5} />
+              <BiWifi size={13} color="#003e35" />
 
-            <div className="green__battery">
-              <div className="grenn__bat">
-                <div className="green__level"  style={{
-                        width: `${limit}%`,
-                       
-                      }}></div>
+              <div className="green__battery">
+                <div className="grenn__bat">
+                  <div className="green__level" style={{
+                    width: `${limit}%`,
+
+                  }}></div>
+                </div>
+                <div className="green__border"></div>
               </div>
-              <div className="green__border"></div>
-            </div>
             </div>
             <div className="green__percent">
               <span className="percent__green">{limit}</span>
@@ -55,14 +55,14 @@ const random1Number = () => {
 
       <div className="green__content">
         <div className="content__text">
-          <span className="text__1">Your Induslnd Account 10XXXXX{random4Nuber()} has</span>
+          <span className="text__1">Your Induslnd Account 10XXXXX{props?.account} has</span>
           <div>
             <span className="text__1">been debited for INR</span>
-            <span className="text2__amount"> {Currency.IndiaWithoutCurrency(props.amount)}.00</span>
+            <span className="text2__amount"> {Currency.IndiaWithoutCurrency(props?.amount)}.00</span>
             <span className="text1"> towards IMPS/ </span>
           </div>
           <div>
-            <span className=" __bl">{props.transactionId}</span>
+            <span className=" __bl">{props?.transactionId}</span>
             <span className="text1">. Call </span>
             <span className=" __bl">18602677777</span>
             <span className="text1"> to report</span>

@@ -31,14 +31,13 @@ function Yes(props) {
 
           <div className="yes__amount">
             <span className="yes__label">Beneficiary Name</span>
-            <span className="yes__value">Vasudha Collections</span>
+            <span className="yes__value">{props?.fromCustomer}</span>
           </div>
 
           <div className="yes__amount">
             <span className="yes__label">Beneficiary Account No.</span>
             <span className="yes__value">
-              012763{Number.generateRandom5Number()}
-              {props.account}
+              {props?.account}
             </span>
           </div>
 
@@ -49,7 +48,7 @@ function Yes(props) {
 
           <div className="yes__amount">
             <span className="yes__label">Remarks</span>
-            <span className="yes__value">{Names.remarks()}</span>
+            <span className="yes__value">{props?.remarks}</span>
           </div>
 
           <div className="yes__amount">

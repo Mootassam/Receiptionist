@@ -1,7 +1,6 @@
 import "./idfc.css";
 import Currency from "../../../utils/Currency";
 import Dates from "../../../utils/Dates";
-import Names from "../../../utils/Names";
 function Idfc(props) {
   return (
     <div className="app__idfc">
@@ -18,24 +17,24 @@ function Idfc(props) {
             From
           </label>
           <span className="idfc__namecustomer --10">
-            {Names.generateRandomFullName()}
+            {props?.fromCustomer}
           </span>
           <span className="idfc__firstbank --3">
-            IDFC FIRST BanK ****{props.account}
+            IDFC FIRST BanK ****{props?.from}
           </span>
         </div>
         <div className="idfc__section __to">
           <label htmlFor="" className="idfc__label">
             To
           </label>
-          <span className="idfc__namecustomer --10">REKHA CONSTRUCTION</span>
-          <span className="idfc__firstbank --4">9910780968m@pnb</span>
+          <span className="idfc__namecustomer --10">{props.paidto}</span>
+          <span className="idfc__firstbank --4">{props?.bankName} ****{props.account}</span>
         </div>
         <div className="idfc__section __mode">
           <label htmlFor="" className="idfc__label">
             Payment mode
           </label>
-          <span className="idfc__namecustomer --7">UPI</span>
+          <span className="idfc__namecustomer --7">{props?.mode}</span>
         </div>
         <div className="idfc__section --date">
           <label htmlFor="" className="idfc__label">
@@ -48,7 +47,7 @@ function Idfc(props) {
             Transaction ID
           </label>
           <span className="idfc__date --9">
-          {props.transactionId}
+            {props?.transactionId}
           </span>
         </div>
       </div>

@@ -9,8 +9,8 @@ function RedKotak(props) {
         <div className="kotak__white">
           <div className="kotaq__header">
             <span className="contact__to">PAYMENT TO</span>
-            <span className="contact__company d--12">SHUBHAM ENTERPRISES</span>
-            <span className=" ">8797192247m@pnb</span>
+            <span className="contact__company d--12">{props?.paidto}</span>
+            <span className=" ">{props?.account}</span>
           </div>
           <div className="kotak__bar">
             <img src="/Kotak/bar.png" alt="" />
@@ -43,7 +43,7 @@ function RedKotak(props) {
             <div className="kotaq__detaill __23">
               <div className="kotaq__status">Transaction ID</div>
               <div className="kotaq__successful">
-              {props.transactionId}
+                {props?.transactionId}
               </div>
             </div>
             <div className="border__bar">
@@ -55,14 +55,14 @@ function RedKotak(props) {
                 FROM
               </label>
               <label htmlFor="" className="kotak__baba">
-                {Names.generateRandomFullName()}
+                {props?.fromCustomer}
               </label>
               <span className="kotak__logo">
                 <img src="/Kotak/kotak__logo.png" alt="" width={28} />
                 Kotak Mahindra Bank
               </span>
               <span className="saving">
-                SAVINGS <div className="circle__grey"></div> XX{props.account}
+                SAVINGS <div className="circle__grey"></div> XX{props?.from}
               </span>
             </div>
           </div>

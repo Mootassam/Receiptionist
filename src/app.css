@@ -29,7 +29,6 @@ form {
 
 .app__sidebar {
   margin: 10px 25px;
-  height: 800px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -93,7 +92,7 @@ form {
   gap: 25px;
 }
 
-.translate__ > img {
+.translate__>img {
   width: 50px;
   display: flex;
   object-position: center;
@@ -119,7 +118,7 @@ form {
   animation: fadeIn 5s;
 }
 
-.generate > img {
+.generate>img {
   object-position: center;
   object-fit: cover;
 }
@@ -302,17 +301,17 @@ button {
 }
 
 
-.screenshot__time{ 
+.screenshot__time {
   margin: auto;
   color: white;
   font-weight: bold;
 }
 
-.clear__all{ 
+.clear__all {
   color: white;
   font-weight: bold;
   cursor: pointer;
   background-color: rgb(219, 80, 80);
-  padding:  3px  20px;
+  padding: 3px 20px;
   margin-right: 25px;
 }

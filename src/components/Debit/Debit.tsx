@@ -53,10 +53,11 @@ function Debit() {
   const [ifsc, setifsc] = useState("");
   const [bankName, setBankName] = useState("");
 
+  const [fromCustomer, setCustomerFrom] = useState("")
+
   const change = (event) => {
     event.preventDefault();
     setAmount(event.target.value);
-    let ifsc = Math.floor(1000000 + Math.random() * 9000000);
     let utr = Math.floor(100000000000 + Math.random() * 900000000000);
 
     setutr(utr);
@@ -156,17 +157,18 @@ function Debit() {
       <div className="app__content">
         <div className="app__sidebar">
           <div className="form__submit">
-            <div className="sdiebar__form">
-              <label htmlFor=""> Reference ID</label>
+            {template !== 'Yes' && template !== 'sbi' && <div className="sdiebar__form">
+
+              < label htmlFor=""> Reference ID</label>
               <input
                 name="amount"
                 id=""
                 className="app__select"
                 onChange={(e) => setReference(e.target.value)}
               />
-            </div>
+            </div>}
 
-            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && <div className="sdiebar__form">
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' && <div className="sdiebar__form">
               <label htmlFor=""> Mode ID</label>
               <input
                 name="amount"
@@ -176,7 +178,7 @@ function Debit() {
               />
             </div>}
 
-            <div className="sdiebar__form">
+            {template !== 'Yes' && template !== 'Green' && template !== 'sbi' && <div className="sdiebar__form">
               <label htmlFor="">Paid To</label>
               <input
                 name="amount"
@@ -184,9 +186,10 @@ function Debit() {
                 className="app__select"
                 onChange={(e) => setPaidTo(e.target.value)}
               />
-            </div>
+            </div>}
+
             {template !== 'imps' &&
-              < div className="sdiebar__form">
+              <div className="sdiebar__form">
                 <label htmlFor="">Account To</label>
                 <input
                   name="amount"
@@ -196,6 +199,9 @@ function Debit() {
                 />
               </div>
             }
+
+
+
             <div className="sdiebar__form">
               <label htmlFor=""> Write Amount</label>
               <input
@@ -205,7 +211,7 @@ function Debit() {
                 onChange={change}
               />
             </div>
-            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' &&
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' &&
               <div className="sdiebar__form">
                 <label htmlFor="">From Account</label>
                 <input
@@ -216,7 +222,19 @@ function Debit() {
                 />
               </div>
             }
-            {template !== 'imps' && template !== 'icici' &&
+
+            {template !== 'kotak' && template !== 'imps' && template !== 'airtel' && template !== 'Green' && template !== 'sbi' &&
+              <div className="sdiebar__form">
+                <label htmlFor="">From Customer name</label>
+                <input
+                  name="fromCustomer"
+                  id=""
+                  className="app__select"
+                  onChange={(e) => setCustomerFrom(e.target.value)}
+                />
+              </div>
+            }
+            {template !== 'imps' && template !== 'icici' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' &&
               <div className="sdiebar__form">
                 <label htmlFor=""> Bank Name</label>
                 <input
@@ -226,7 +244,7 @@ function Debit() {
                   onChange={(e) => setBankName(e.target.value)}
                 />
               </div>}
-            {template !== 'imps' && template !== 'icici' &&
+            {template !== 'imps' && template !== 'icici' && template !== 'grey' && template !== 'idfc' && template !== 'Yes' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' &&
               <div className="sdiebar__form">
                 <label htmlFor=""> IFSC</label>
                 <input
@@ -237,7 +255,7 @@ function Debit() {
                 />
               </div>}
 
-            {template !== 'kotak' &&
+            {template !== 'kotak' && template !== 'idfc' && template !== 'Green' && template !== 'sbi' && template !== 'redKotak' &&
               < div className="sdiebar__form">
                 <label htmlFor=""> Remarks</label>
                 <input
@@ -395,6 +413,10 @@ function Debit() {
                       upi={upi}
                       account={account}
                       transactionId={transactionId}
+                      mode={mode}
+                      paidto={paidto}
+                      from={from}
+                      remarks={remarks}
                     />
                   )}
                   {template === "sbimessage" && (
@@ -444,7 +466,7 @@ function Debit() {
                       upi={upi}
                       from={from}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
                     />
                   )}
                   {template === "idfc" && (
@@ -452,7 +474,14 @@ function Debit() {
                       amount={amount}
                       upi={upi}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
+                      ifsc={ifsc}
+                      bankName={bankName}
+                      paidto={paidto}
+                      remarks={remarks}
+                      mode={mode}
+                      from={from}
+                      fromCustomer={fromCustomer}
                     />
                   )}
                   {template === "grey" && (
@@ -460,7 +489,14 @@ function Debit() {
                       amount={amount}
                       upi={upi}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
+                      ifsc={ifsc}
+                      bankName={bankName}
+                      paidto={paidto}
+                      remarks={remarks}
+                      mode={mode}
+                      from={from}
+                      fromCustomer={fromCustomer}
                     />
                   )}
                   {template === "Fi" && (
@@ -477,7 +513,14 @@ function Debit() {
                       amount={amount}
                       upi={upi}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
+                      ifsc={ifsc}
+                      bankName={bankName}
+                      paidto={paidto}
+                      remarks={remarks}
+                      mode={mode}
+                      from={from}
+                      fromCustomer={fromCustomer}
                     />
                   )}
 
@@ -485,7 +528,14 @@ function Debit() {
                     <Yes
                       amount={amount}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
+                      ifsc={ifsc}
+                      bankName={bankName}
+                      paidto={paidto}
+                      remarks={remarks}
+                      mode={mode}
+                      from={from}
+                      fromCustomer={fromCustomer}
                     />
                   )}
 
@@ -502,8 +552,13 @@ function Debit() {
                     <Green
                       amount={amount}
                       account={account}
-                      transactionId={transactionId}
+                      transactionId={reference}
                       from={from}
+                      bankName={bankName}
+                      paidto={paidto}
+                      remarks={remarks}
+                      mode={mode}
+                      fromCustomer={fromCustomer}
                     />
                   )}
                 </>

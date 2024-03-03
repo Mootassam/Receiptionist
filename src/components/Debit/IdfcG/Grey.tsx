@@ -19,23 +19,23 @@ function Grey(props) {
           <label htmlFor="" className="section__label">
             From
           </label>
-          <span className="grey__customername p__9">{Names.generateRandomFullName()}</span>
+          <span className="grey__customername p__9">{props?.fromCustomer}</span>
           <span className="grey__bank">
-            IDFC FIRST Bank ****{Number.generateRandom4Number()}
+            IDFC FIRST Bank ****{props?.from}
           </span>
         </div>
         <div className="grey__section">
           <label htmlFor="" className="section__label p__to">
             To
           </label>
-          <span className="grey__customername p__11">PREM TRADERS</span>
-          <span className="grey__bank">YES BANK LTD ****9961</span>
+          <span className="grey__customername p__11">{props.paidto}</span>
+          <span className="grey__bank">{props?.bankName} ****{props.account}</span>
         </div>
         <div className="grey__section">
           <label htmlFor="" className="section__label p__19">
             Note
           </label>
-          <span className="grey__customername">K</span>
+          <span className="grey__customername">{props?.remarks}</span>
         </div>
         <div>
           <img src="/Idfc/bar.png" alt="" />
@@ -44,7 +44,7 @@ function Grey(props) {
           <label htmlFor="" className="section__label p__16">
             Payment mode
           </label>
-          <span className="grey__customername">IMPS</span>
+          <span className="grey__customername">{props?.mode}</span>
         </div>
         <div className="grey__section">
           <label htmlFor="" className="section__label p__17">
@@ -54,9 +54,9 @@ function Grey(props) {
         </div>
         <div className="grey__section">
           <label htmlFor="" className="section__label b__19">
-            Transaction ID{" "}
+            Transaction ID
           </label>
-          <span className="grey__customername">{props.transactionId}</span>
+          <span className="grey__customername">{props?.transactionId}</span>
         </div>
       </div>
       <div className="grey__bottom">
