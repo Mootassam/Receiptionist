@@ -1,5 +1,10 @@
 const optionsbank = [
   {
+    label: "Icici",
+    value: "icici",
+    image: "",
+  },
+  {
     label: "Fi",
     value: "Fi",
     image: "",
@@ -22,11 +27,7 @@ const optionsbank = [
     image: "",
   },
 
-  {
-    label: "Icici",
-    value: "icici",
-    image: "",
-  },
+
   {
     label: "IDFC Grey",
     value: "grey",
