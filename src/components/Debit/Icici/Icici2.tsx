@@ -25,7 +25,7 @@ function Icici2(props) {
               <div className="customer__group">
                 <div className="customer">
                   <label htmlFor="">Transaction ID</label>
-                  <span>31{Number.phonepe2()}</span>
+                  <span>{props?.transactionId}</span>
                 </div>
 
                 <div className="customer">
@@ -52,10 +52,10 @@ function Icici2(props) {
                 <label htmlFor="">Debited from</label>
                 <div className="debit__group">
                   <div className="debit__image">
-                    <img src={props.from.logo} alt="" width={33} height={35} />
+                    <img src={props.froms.logo} alt="" width={33} height={35} />
                   </div>
                   <div className="icici__bank">
-                    <span>{props.from.name}</span>
+                    <span>{props.froms.name}</span>
                     <span>******{props.account}</span>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ function Icici2(props) {
               <div className="customer__bar height__debit"></div>
               <div className="customer">
                 <label htmlFor="">Remarks</label>
-                <span>Prepaid</span>
+                <span>{props?.remarks}</span>
               </div>
               <div className="customer__bar"></div>
 
@@ -146,10 +146,10 @@ function Icici2(props) {
                 </label>
                 <div className="debit__group">
                   <div className="debit__image">
-                    <img src={props.from.logo} alt="" width={33} height={35} />
+                    <img src={props.froms.logo} alt="" width={33} height={35} />
                   </div>
                   <div className="icici__bank">
-                    <span className="text__white">{props.from.name}</span>
+                    <span className="text__white">{props.froms.name}</span>
                     <span className="text__white">
                       ******{props.account}
                     </span>
@@ -161,7 +161,7 @@ function Icici2(props) {
                 <label htmlFor="" className="text__white">
                   Remarks
                 </label>
-                <span className="text__white">Prepaid</span>
+                <span className="text__white">{props?.remarks}</span>
               </div>
               <div className="customer__bar"></div>
 
