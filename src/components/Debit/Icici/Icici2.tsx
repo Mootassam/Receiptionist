@@ -1,6 +1,5 @@
 import StyledWrapper from "./Styled";
 import Currency from "../../../utils/Currency";
-import Names from "../../../utils/Names";
 import Dates from "../../../utils/Dates";
 import Number from "../../../utils/Number";
 function Icici2(props) {
